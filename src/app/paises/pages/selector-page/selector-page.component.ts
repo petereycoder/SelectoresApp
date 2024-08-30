@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { switchMap, tap } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ import { PaisesService } from '../../services/paises.service';
 })
 export class SelectorPageComponent implements OnInit {
 
-  miFormulario: FormGroup = this.fb.group({
+  miFormulario: UntypedFormGroup = this.fb.group({
     region: ['', Validators.required ],
     pais: ['', Validators.required ],
     frontera: ['', Validators.required ],
@@ -29,7 +29,7 @@ export class SelectorPageComponent implements OnInit {
   //UI
   cargando: boolean = false;
 
-  constructor( private fb: FormBuilder,
+  constructor( private fb: UntypedFormBuilder,
                private paisesService: PaisesService ) { }
 
   ngOnInit(): void {
